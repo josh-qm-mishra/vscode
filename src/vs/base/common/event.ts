@@ -106,7 +106,7 @@ export namespace Event {
 				} else {
 					didFire = true;
 				}
-
+//
 				return listener.call(thisArgs, e);
 			}, null, disposables);
 
