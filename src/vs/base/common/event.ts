@@ -113,7 +113,7 @@ export namespace Event {
 			if (didFire) {
 				result.dispose();
 			}
-
+//
 			return result;
 		};
 	}
