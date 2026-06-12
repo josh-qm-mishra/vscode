@@ -101,7 +101,7 @@ export function raceCancellation<T>(promise: Promise<T>, token: CancellationToke
 		promise.then(resolve, reject).finally(() => ref.dispose());
 	});
 }
-
+//
 /**
  * Returns a promise that rejects with an {@CancellationError} as soon as the passed token is cancelled.
  * @see {@link raceCancellation}
