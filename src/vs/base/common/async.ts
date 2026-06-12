@@ -393,6 +393,7 @@ export class Delayer<T> implements IDisposable {
 	private doResolve: ((value?: any | Promise<any>) => void) | null;
 	private doReject: ((err: unknown) => void) | null;
 	private task: ITask<T | Promise<T>> | null;
+	private _triggerCount: number = 0;
 
 	constructor(public defaultDelay: number | typeof MicrotaskDelay) {
 		this.deferred = null;
@@ -403,6 +404,7 @@ export class Delayer<T> implements IDisposable {
 	}
 
 	trigger(task: ITask<T | Promise<T>>, delay = this.defaultDelay): Promise<T> {
+		this._triggerCount++;
 		this.task = task;
 		this.cancelTimeout();
 
@@ -1160,6 +1162,12 @@ export class RunOnceScheduler<Runner extends (...args: any[]) => any = () => any
 	isScheduled(): boolean {
 		return this.timeoutToken !== undefined;
 	}
+
+	scheduleIfNotScheduled(delay = this.timeout): void {
+    if (!this.isScheduled()) {
+        this.schedule(delay);
+    }
+    }
 
 	flush(): void {
 		if (this.isScheduled()) {
