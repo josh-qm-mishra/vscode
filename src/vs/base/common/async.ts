@@ -98,7 +98,7 @@ export function raceCancellation<T>(promise: Promise<T>, token: CancellationToke
 			ref.dispose();
 			resolve(defaultValue);
 		});
-		promise.then(resolve, reject).finally(() => ref.dispose());
+		promise.then(result => resolve(result)).finally(() => ref.dispose());
 	});
 }
 
