@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+
 import { CancellationToken, CancellationTokenSource } from './cancellation.js';
 import { BugIndicatingError, CancellationError, isCancellationError } from './errors.js';
 import { Emitter, Event } from './event.js';
