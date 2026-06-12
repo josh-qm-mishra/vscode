@@ -114,7 +114,7 @@ export function raceCancellationError<T>(promise: Promise<T>, token: Cancellatio
 		promise.then(resolve, reject).finally(() => ref.dispose());
 	});
 }
-
+//
 export function rejectIfNotCanceled(err: unknown): undefined {
 	if (isCancellationError(err)) {
 		return undefined;
