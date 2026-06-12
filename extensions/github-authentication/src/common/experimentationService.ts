@@ -48,7 +48,7 @@ export class ExperimentationTelemetry implements IExperimentationTelemetry {
 			this.experimentationServicePromise = this.createExperimentationService();
 		}
 		await this.experimentationServicePromise;
-
+//
 		this.baseReporter.sendTelemetryEvent(
 			eventName,
 			{
