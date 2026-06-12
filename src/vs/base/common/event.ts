@@ -1405,6 +1405,10 @@ export class Emitter<T> {
 	hasListeners(): boolean {
 		return this._size > 0;
 	}
+
+	get listenerCount(): number {                                                                                                                                            
+      return this._size;                                                                                                                                                   
+    } 
 }
 
 export interface EventDeliveryQueue {
